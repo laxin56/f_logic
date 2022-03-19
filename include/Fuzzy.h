@@ -14,9 +14,9 @@ class Fuzzy
 {
     public:
 
-        double _Speed_Max;
-        double _Speed_Min;
-        double _Speed_Mid;
+        double _min;
+        double _mid;
+        double _max;
 
         double _ymax = 1.0;
         double _ymin = 0.0;

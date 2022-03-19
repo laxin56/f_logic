@@ -1,10 +1,10 @@
 #include "Fuzzy.h"
-#include <vector>
-Fuzzy::Fuzzy(double s_min, double s_mid, double s_max)
+
+Fuzzy::Fuzzy(double v_min, double v_mid, double v_max)
 {
-    this->_Speed_Min = s_min;
-    this->_Speed_Mid = s_mid;
-    this->_Speed_Max = s_max;
+    this->_min = v_min;
+    this->_mid = v_mid;
+    this->_max = v_max;
 
 }
 
@@ -25,38 +25,38 @@ std::map<std::string, double> Fuzzy::Triangular_Speed(double speed)
     //Fuzzy Set map (dictionary)
     Fuzzy_Set memb_deg;
 
-    if(speed <= this->_Speed_Min)
+    if(speed <= this->_min)
     {
         //Before Low Fuzzy Set
         memb_deg.insert(std::pair<std::string, double>("Low", 1.0));
     }
-    else if ( speed > this->_Speed_Min && speed < this->_Speed_Mid )
+    else if ( speed > this->_min && speed < this->_mid )
     {
         std::cout<< "Hello";
         //Low Speed Fuzzy Set
-        val = ((_ymin - _ymax)*(speed - this->_Speed_Min)/(this->_Speed_Mid - this->_Speed_Min)) + _ymax;
+        val = ((_ymin - _ymax)*(speed - this->_min)/(this->_mid - this->_min)) + _ymax;
         memb_deg.insert(std::pair<std::string, double>("Low", val));
 
         //Medium Speed Fuzzy Set
-        val = ((_ymax - _ymin)*(speed - this->_Speed_Min)/(this->_Speed_Mid - this->_Speed_Min)) + _ymin;
+        val = ((_ymax - _ymin)*(speed - this->_min)/(this->_mid - this->_min)) + _ymin;
         memb_deg.insert(std::pair<std::string, double>("Mid", val));
     }
-    else if ( speed == this->_Speed_Mid)
+    else if ( speed == this->_mid)
     {
         //Medium Speed Fuzzy Set
         memb_deg.insert(std::pair<std::string, double>("Mid", 1.0));
     }
-    else if ( speed > this->_Speed_Mid && speed < this->_Speed_Max )
+    else if ( speed > this->_mid && speed < this->_max )
     {
         //Medium Speed Fuzzy Set
-        val = ((_ymin - _ymax)*(speed - this->_Speed_Mid)/(this->_Speed_Max - this->_Speed_Mid)) + _ymax;
+        val = ((_ymin - _ymax)*(speed - this->_mid)/(this->_max - this->_mid)) + _ymax;
         memb_deg.insert(std::pair<std::string, double>("Mid", val));
 
         //Max Speed Fuzzy Set
-        val = ((_ymax - _ymin)*(speed - this->_Speed_Mid)/(this->_Speed_Max - this->_Speed_Mid)) + _ymin;
+        val = ((_ymax - _ymin)*(speed - this->_mid)/(this->_max - this->_mid)) + _ymin;
         memb_deg.insert(std::pair<std::string, double>("Max", val));
     }
-    else if ( speed >= this->_Speed_Max )
+    else if ( speed >= this->_max )
     {
         //Max Speed Fuzzy Set
         memb_deg.insert(std::pair<std::string, double>("Max", 1.0));
