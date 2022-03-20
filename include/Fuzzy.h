@@ -21,10 +21,15 @@ class Fuzzy
         double _ymax = 1.0;
         double _ymin = 0.0;
 
-        Fuzzy(double, double, double);
+        Fuzzy(double v_min, double v_mid, double v_max);
         virtual ~Fuzzy();
 
-        std::map<std::string, double> Triangular_Speed(double);
+
+        std::map<std::string, double> fuzzification_triangle(double input);
+
+        void rule_match(Fuzzy input_1, Fuzzy input_2);
+
+
 
 };
 

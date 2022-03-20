@@ -18,7 +18,7 @@ Fuzzy::~Fuzzy()
 *** (y2 - y1)/(x2 - x1) = (memb_deg - y1)/(x - x1) ****
 ******************************************************/
 
-std::map<std::string, double> Fuzzy::Triangular_Speed(double speed)
+std::map<std::string, double> Fuzzy::fuzzification_triangle(double speed)
 {
     //Variable for calculating fuzzy membership degree
     double val = 0;
@@ -64,5 +64,14 @@ std::map<std::string, double> Fuzzy::Triangular_Speed(double speed)
 
 
     return memb_deg;
+}
+
+
+void Fuzzy::rule_match(Fuzzy_Set input1, Fuzzy_Set input2)
+{
+
+    //iterate through existing rules in nested loop
+    //output must be returned output fuzzy set with the strongest membership degree
 
 }
+
