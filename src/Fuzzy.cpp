@@ -66,9 +66,29 @@ std::map<std::string, double> Fuzzy::fuzzification_triangle(double speed)
     return memb_deg;
 }
 
+/*******************************************************************
+******************** Rules for Output function *********************
+********    angle\speed|Low|Mid|Max|         ***********************
+********           Left|FR | FR| R |         *********************
+********           Zero| R | Z | Z |         *********************
+********          Right| FL| FL| L |         *********************
+********************************************************************/
 
-void Fuzzy::rule_match(Fuzzy_Set input1, Fuzzy_Set input2)
+
+void Fuzzy::rule_match(Fuzzy_Set angle, Fuzzy_Set speed)
 {
+    Fuzzy_Set::iterator it_a;
+    Fuzzy_Set::iterator it_s;
+
+    for(it_a = angle.begin(); it_a != angle.end(); it_a++)
+    {
+        for(it_s = speed.begin(); it_s != speed.end(); it_s++)
+        {
+            it_a->first
+
+        }
+    }
+    If
 
     //iterate through existing rules in nested loop
     //output must be returned output fuzzy set with the strongest membership degree

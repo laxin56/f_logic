@@ -29,6 +29,8 @@ class Fuzzy
 
         void rule_match(Fuzzy input_1, Fuzzy input_2);
 
+        std::vector rules = {}
+
 
 
 };
