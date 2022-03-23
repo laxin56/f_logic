@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1647701190 source:c:\users\wv532bm\documents\fuzzy_logic\f_logic\main.cpp
+1648049768 source:c:\users\wv532bm\documents\fuzzy_logic\f_logic\main.cpp
 	<iostream>
 	"Fuzzy.h"
 
-1647731892 c:\users\wv532bm\documents\fuzzy_logic\f_logic\include\fuzzy.h
+1648048855 c:\users\wv532bm\documents\fuzzy_logic\f_logic\include\fuzzy.h
 	<vector>
 	<iostream>
 	<map>
 	<string>
+	<cstdlib>
 
-1647701205 source:c:\users\wv532bm\documents\fuzzy_logic\f_logic\src\fuzzy.cpp
+1648049788 source:c:\users\wv532bm\documents\fuzzy_logic\f_logic\src\fuzzy.cpp
 	"Fuzzy.h"
 

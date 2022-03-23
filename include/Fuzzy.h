@@ -5,9 +5,22 @@
 #include <iostream>
 #include <map>
 #include <string>
-
+#include <cstdlib>
 
 typedef std::map<std::string, double> Fuzzy_Set;
+typedef std::map<std::string, std::string> m1;
+typedef std::map<std::string, m1> Rules;
+
+typedef std::map<double, double> double_set;
+typedef std::map<std::string, double_set> Output_rules;
+
+/*******************************************************************
+******************** Rules for Output function *********************
+********    angle\speed|Low|Mid|Max|         ***********************
+********           Left|FR | FR| R |         *********************
+********           Zero| R | Z | Z |         *********************
+********          Right| FL| FL| L |         *********************
+********************************************************************/
 
 
 class Fuzzy
@@ -21,17 +34,20 @@ class Fuzzy
         double _ymax = 1.0;
         double _ymin = 0.0;
 
-        Fuzzy(double v_min, double v_mid, double v_max);
+        Rules rules_set;
+        Output_rules crisp_val;
+
+
+        Fuzzy(double v_min, double, double);
         virtual ~Fuzzy();
 
+        Fuzzy_Set fuzzification_triangle(double);
 
-        std::map<std::string, double> fuzzification_triangle(double input);
+        double check_lower(double, double);
 
-        void rule_match(Fuzzy input_1, Fuzzy input_2);
+        Fuzzy_Set rule_match(Fuzzy_Set, Fuzzy_Set);
 
-        std::vector rules = {}
-
-
+        double defuzzification_triangle(Fuzzy_Set);
 
 };
 
